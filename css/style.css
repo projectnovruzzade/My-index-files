@@ -557,6 +557,7 @@ form input:focus ~ .etiket {
     resize: none!important;
     outline: none;
     padding: 12px;
+    font-family: Arial;
     width: 80%;
     line-height: 16px;
     letter-spacing: 1px;
@@ -773,12 +774,13 @@ form input:focus ~ .etiket {
         letter-spacing: .8px;
     }
     .contact-part form input {
-        height: 25px;
+        height: 27px;
         font-size: 12px;
     }
     #section-3 .contact-container {
         margin-bottom: 10px;
     } 
+
 }
 
 @media (max-width: 599px) {
@@ -870,11 +872,32 @@ form input:focus ~ .etiket {
 }
 
 @media (max-width: 516px) {
+    .same .etiket {
+      display: none;  
+    } 
+
+    .contact-part form .same {
+        display: block;
+    }
+    .contact-part form input {
+        width: 83%;
+    }
+
+    .contact-part form input:focus {
+        transform: scale(1.01);
+    }
+
+    .contact-part {
+        width: 100%;
+    }
     #header {
         box-shadow: none !important;
     }
-    .contact-container {
-        background-color: #4456FF;
+    #section-3 .contact-container {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
     .text-container {
         margin-right: 0;
@@ -1096,6 +1119,15 @@ form input:focus ~ .etiket {
         width: 51px;
         height: 17px;
         transform: translateX(2px) translateY(-5px);
+    }
+}
+
+@media (max-width: 380px) {
+    .contact-part form input {
+        width: 93%;   
+    }
+    #section-3 .contact-container {
+        padding: 40px 30px 40px 10px;
     }
 }
 
