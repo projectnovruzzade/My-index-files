@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Js Dom</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .hg-edit:hover {
+            cursor: pointer;
+        }
+        .task label {
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .task label.checked {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 15px;
+            
+        }
+
+
+        .container * {
+            user-select: none !important;
+        }
+
+        .hg-edit {
+            height: 20px;
+            margin-top: -4px;
+        }
+        .edit-margin {
+            margin-top: 2px;
+        }
+
+        .filter span {
+            font-size: 15px;
+            font-weight: bold;
+            margin-right: 5px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            padding: 4px;
+        }
+        span.active {
+            color: blue !important;
+            border-color: blue;
+        }
+
+        .controls-2 {
+            font-size: 17px;
+        }
+
+        .filter {
+          margin: 7px 0;
+        }
+    </style>
+</head>
+
+<body style="padding: 100px; display: flex; align-items: center; flex-direction: column;">
+    <div class="form-group d-flex w-50">
+        <input type="text" id="inputText" class="form-control">
+        <button class="btn btn-success me-2 ms-2" id="button" type="button">Add</button>
+        <button class="btn btn-danger" id="removeButton" type="button">Remove</button>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 g-3 w-75">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <div>
+                        <b class="d-block controls-2"> List  </b>
+                    </div>
+                    </div>
+                </div>
+                <div class="card mt-1 border-0">
+                    <div class="filter">
+                        <span class="active" id="all">All</span>
+                        <span class="" id="loading">Loading</span>
+                        <span class="" id="complete">Complete</span>
+                    </div>
+                    <ul class="list-group" id="task-list">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script>
+
+        const removeBtn = document.querySelector("#removeButton");
+        let filters = document.querySelectorAll(".filter span")
+        let edidId;
+        let isEditTask = false;
+
+        let list_items =
+            [
+                {
+                    "id": 1,
+                    "name": "Name",
+                    "durum": "loading"
+                }
+            ];
+
+            dispay("all");
+
+        // ****************************************************************  
+        function dispay(filter) {
+            let ul = document.querySelector("#task-list");
+            ul.innerHTML = "";
+            if (list_items.length == 0) {
+                ul.innerHTML = '<p class="p-3 text-center fw-bold fs-3 text-danger">Empty List</p>';
+            }
+            else {
+               
+                for (let index of list_items) {
+
+                    let completed;
+                    if(index.durum == "complete") {
+                         completed = "checked";
+                    }else {
+                         completed = "";
+                    }
+
+                 if(filter == index.durum || filter == "all"){
+                    let li = `
+
+                    <li class="list-group-item border-top mt-1 d-flex justify-content-between align-items-center list-group-item-action pe-auto task">
+                    <div class="form-check d-flex align-items-center w-100">
+                    <input type="checkbox" name="" onclick="changeList(this)" id="${index.id}" class="form-check-input me-3 p-2" ${completed}>
+                    <label for="${index.id}" class="form-check-label hg-edit w-100 d-block ${completed} edit-margin">${index.name}</label>
+                    </div>
+                    <!-- Example single danger button -->
+                    <div class="btn-group">                                     
+                    <button type="button" class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="deleteItem(${index.id})">Delete</a></li>
+                        <li><a class="dropdown-item" href="#" onclick='editItem(${index.id},"${index.name}")'>Edit</a></li>
+                    </ul>
+                    </div>
+                    </li> `
+                    ul.insertAdjacentHTML("beforeend", li)
+                 }
+                 
+                }
+            }
+
+        }
+        // ****************************************************************
+        var inputTxt = document.querySelector("#inputText");
+        document.querySelector("#button").addEventListener("click", openTask);
+        inputTxt.addEventListener("keypress", acilfsa);
+
+        for(let span of filters) {
+          span.addEventListener("click",function() {
+              document.querySelector("span.active").classList.remove("active");
+              span.classList.add("active");
+              dispay(span.id);
+          });
+        }
+
+
+
+
+
+        function acilfsa() {
+            if (event.key == "Enter") {
+                document.getElementById("button").click();
+            }
+        }
+        function openTask(event) {
+            if (inputTxt.value == "" || inputTxt.value == " ") {
+                alert("List should not be empty!")
+            }
+            else {
+                if (!isEditTask) {
+                    // Yeni bir element elava edecek enter'a basilan zaman
+                    list_items.push({ "id": list_items.length + 1, "name": inputTxt.value })
+                }
+                else {
+                    // edit isleyecek enter'a basilan zaman
+                    for (let task of list_items) {
+                        if (task.id == edidId) {
+                            task.name = inputTxt.value;
+                        }
+                        isEditTask = false;
+                    }
+
+                }
+                inputTxt.value = "";
+                dispay(document.querySelector("span.active").id);
+            }
+            event.preventDefault();
+        }
+
+        function deleteItem(id) {
+            let removeItem;
+            for (let index in list_items) {
+                if (list_items[index].id == id) {
+                    removeItem = index;
+                }
+            }
+            list_items.splice(removeItem, 1);
+            dispay(document.querySelector("span.active").id);
+
+        }
+
+        function editItem(txtId, txtName) {
+            edidId = txtId;
+            isEditTask = true;
+            inputTxt.value = txtName;
+            inputTxt.focus();
+            inputTxt.classList.add("active");
+            console.log("Id = ", edidId);
+            console.log(isEditTask)
+
+        }
+        removeBtn.addEventListener("click", function () {
+            list_items.splice(0, list_items.length);
+            dispay();
+        });
+     
+        function changeList(selecetedTask) {
+            let label = selecetedTask.nextElementSibling;
+            let durumS;
+            // console.log(label)
+             if(selecetedTask.checked) {
+              label.classList.add("checked");
+               durumS = "complete";
+             }
+             else {
+              label.classList.remove("checked");
+              durumS = "loading";
+             }
+             for (let index of list_items) {
+                 if(index.id == selecetedTask.id) {
+                     index.durum = durumS;
+                 }
+             }
+             console.log(list_items);
+
+        }
+
+    
+    </script>
+</body>
+
+</html>

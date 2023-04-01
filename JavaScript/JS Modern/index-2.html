@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let result;
+        // const numbers = [4,2,9,45,34,12,11,7];
+        // let result = numbers.filter((number) => number % 2 == 0);
+        let phones = [
+            {name: "Iphone 11",price: 2000},
+            {name: "Iphone 12",price: 2300},
+            {name: "Iphone 13",price: 2800},
+            {name: "Iphone 13 Pro Max",price: 3000}
+        ];
+
+        // const result = phones.map(phone => phone); // == for(let phone of phones) 
+        let control = phones.filter(phone => phone.price > 2000); // == for(let phone of phones) 
+        result = control.map(phone2 => phone2.name) // == for(let phone2 of control) 
+        console.log(result)
+    </script>
+</body>
+</html>

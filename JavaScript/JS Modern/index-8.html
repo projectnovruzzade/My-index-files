@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASS</title>
+</head>
+
+<body>
+    <script>
+ 
+        // parant
+        class Person {
+            constructor(name, age) {
+                console.log("Bu bir insandir")
+                this.name = name;
+                this.age = age;
+            }
+            control() {
+                var date = new Date().getFullYear();
+                return date - this.age
+            }
+            myAbout() {
+                return `menim adim ${this.name}`
+            }
+        }
+        // child
+        class Student extends Person {
+            constructor(name, age, grade) {
+                console.log("Bu bir sagirddir")
+                super(name,age);
+                this.grade = grade;     
+            }
+            myAbout() {
+                return `menim adim ${this.name} ve men ${this.grade} ci sinifde oxuyuram`
+            }
+        }
+
+        let person1 = new Person("Tunar",1994);
+        let student1 = new Student("Sabir",2008,9);
+        // console.log(person1.control());
+        // console.log(student1.control());
+        console.log(person1.myAbout());
+        console.log(student1.myAbout());
+
+
+    </script>
+</body>
+
+</html>

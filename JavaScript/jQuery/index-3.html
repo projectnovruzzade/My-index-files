@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+     crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Lesson 3</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1 class="text-center mt-3"></h1>
+
+    <ul id="ul">
+        <li class="item-1">Lesson 1</li>
+        <li class="item-2">Lesson 2</li>
+        <li>Lesson 3</li>
+    </ul>
+    <img src="tombul.png" alt="" width="200" height="200">
+    <a href="">link</a>
+    <button class="btn btn-primary d-block m-5" onclick="clicked()">Click Me !</button>
+
+    <input type="text" name="" id="" class="form-control w-25 ms-4 d-inline">
+    <button type="button" class="btn btn-warning" onclick="sent()">Show value</button>
+
+
+    
+
+    <script>
+    
+
+    function clicked() {
+
+        $(".btn").toggleClass("btn-success"); // eger click olan zaman btn-succes varsa classi remove edir eger yoxdursa add edir
+        $("img").attr("src","vendetta.jpg")  // elementin atributunu deyisir
+    } 
+   function sent() {
+        let h1 = document.querySelector("h1");
+        var name = $("input").val();  // bu inputun deyerini alir
+        h1.innerHTML = "Welcome," + name;
+
+   }
+
+    
+      
+ 
+
+    </script>
+</body>
+</html>
+

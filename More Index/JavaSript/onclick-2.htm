@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0458dcaf31.js" crossorigin="anonymous"></script>  
+    <title>Onclick 2</title>
+
+<style type="text/css">
+body {
+    margin: 0;
+    padding: 0;
+}
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #222;
+    padding-right: 15px;
+    min-height: 45px;
+}
+nav li {
+    display: inline-block;
+    user-select: none;
+    /* background-color: red; */
+  
+}
+nav a {
+    text-decoration: none;
+    color: #fff;
+    user-select: none;
+    /* background-color: ghostwhite; */
+    padding: 8px 10px;
+    font-size: 15px;
+    margin: 0;
+    font-family: monospace;
+}
+
+nav li::after {
+    content: '';
+    transition: all 1000ms;
+    width: 0;
+    height: 2px;
+    display: block;
+    background-color: #ccc;
+    margin: 5px auto auto auto;
+}
+nav li:hover::after {
+ width: 100%;
+}
+     
+@media(max-width: 910px) {
+    nav li {
+        display: block;
+        margin-top: 5px;
+        /* background-color: gold; */
+        line-height: 15px;
+    }
+    nav {
+
+        top: 50px;
+    }
+    nav a {
+        color: red;
+        display: block;
+        border: 1px solid green;
+        text-align: center;
+        /* background-color: aqua; */
+        width: 100px;
+        margin-top: 7px;
+    }
+
+    .four {
+        margin-bottom: 7px;
+    }
+
+    .li::after {
+        display: none;
+    }
+
+    .menu {
+     display: flex;
+       align-items: center;
+       justify-items: flex-start;
+       position: relative;
+       flex-direction: column;
+    }
+    #i {
+        display: block;
+        cursor: pointer;
+
+    
+    }
+    i {
+        cursor: pointer;
+    }
+    .menu-icon {
+        align-self: flex-end;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      
+    }
+
+   .nav-inside {
+       /* background-color: red; */
+       width:50%;
+       display: flex;
+       justify-content: center;
+   }
+   ul {
+    margin-top: -1000px;
+    transition: all 200ms;
+   }
+
+
+}
+
+i {
+    color: #fff;
+    display: none;
+    padding: 5px;
+    /* background-color: #ccc; */
+    font-size: 23px;
+    transform: translateY(-4px);
+}
+
+.menu-icon {
+    
+}
+
+.fa, .fab, .fad, .fal, .far, .fas {
+
+    transition: 2000ms all;
+}
+
+body {
+    height: 99%;
+    position: relative;
+}
+#baglanir-i {
+    display: none;
+}
+
+@media(min-width: 910px) {
+    nav li {
+    display: inline-block;
+    user-select: none;
+}
+i {
+    display: none;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<div class="menu">
+    <div class="nav-inside">
+    <nav>
+        <ul id="as">
+            <li class="li"><a href="#">Main</a></li>
+            <li class="li"><a href="#">Gallery</a></li>
+            <li class="li"><a href="#">About</a></li>
+            <li class="li"><a href="#" class="four">Help</a></li>
+        </ul>
+    </nav>
+    </div>
+   <div class="menu-icon">
+       
+    <i class="fas fa-bars" onclick="acilir()" id="i"></i>
+    <i class="fas fa-times" onclick="baglanir()" id="baglanir-i"></i>
+   </div>
+</div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+function acilir(){
+    document.getElementById("i").style.display="none";
+    as.style.margin="0 0 0 0";
+  document.getElementById("baglanir-i").style.display="block";
+
+}
+
+function baglanir() {
+    as.style.margin="-1000px 0 0 0";
+    document.getElementById("baglanir-i").style.display="none";
+    document.getElementById("i").style.display="block";
+}
+</script>
+</body>
+</html>

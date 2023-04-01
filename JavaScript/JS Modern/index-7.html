@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASS</title>
+</head>
+
+<body>
+    <script>
+        class Name {
+
+            constructor(ad, soyad, yas) {
+                this.ad = ad;
+                this.soyad = soyad;
+                this.yas = yas;
+            }
+            control() {
+                var date = new Date().getFullYear();
+                return date - this.yas
+            }
+
+            get yas() {
+                return this._yas;
+            }
+
+            set yas(value) {
+                if(value < 18 || value >= 25) {
+                    console.log("Sizin Yasiniz Uygun deyil !");
+                    return;
+                }
+                this._yas = value;
+
+            }
+            
+        }
+
+        let result1 = new Name("Tunar", "Novruzzade", 28);
+
+        console.log(result1)
+
+    </script>
+</body>
+
+</html>

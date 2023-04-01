@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const names = new Set();
+        names.add("Tunar");
+        names.add("Novruzzade");
+        names.add(14);
+        names.clear(); // hamsini silir
+        
+        names.delete("Novruzzade"); // value daxil edirik ve onu silir
+        console.log(names.size);  // deyerin sayisini gosterir
+        console.log(names.has("Tunar")); // olub olmadigini T/F ile geri qaytarir
+        
+
+
+
+    </script>
+</body>
+</html>

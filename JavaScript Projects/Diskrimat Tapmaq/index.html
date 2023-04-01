@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diskriminat Tapmaq</title>
+
+    <style>
+        .wrapper {
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            margin: 100px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wrapper-2 {
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            margin: 100px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            font-size: 1.6rem;
+            text-align: center;
+            font-family: monospace;
+            color: #0080FF;
+        }
+        input {
+            margin-top: 10px;
+            border: 1px solid #232629 !important;
+            font-size: 1em;
+            border-radius: 30px;
+            background-color: #222;
+            height: 30px;
+            color: #fff !important;
+            padding: 4px 7px;
+            transition: 700ms ease transform;
+        }
+        input:focus {
+            border: 1px solid #0080FF !important;
+            outline: 0;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none !important;
+          margin: 0 !important;
+        }
+
+        button[type="button"] {
+            margin-top: 20px;
+            border: 1px solid green;
+            border-radius: 30px;
+            padding: 7px 9px;
+            width: 70px;
+            font-weight: 600;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            cursor: pointer;
+            align-self: flex-end;
+            margin-right: 50px;
+        }
+        .result {
+            margin: 0;
+        }
+        .details {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .result-2 {
+            margin: 0;
+        }
+        .details-2 {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        
+        h1 {
+            font-size: 1.2em;
+        }
+        .contain {
+            display: flex;
+
+        }
+        .btn {
+             width: 30px;
+             transform: translateY(15px) translateX(15px);
+             height: 30px;
+            background-color: transparent;
+            transition: 500ms all ease;
+            margin-right: 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            border: 1px solid blueviolet;
+        }
+
+        .btn.active {
+            background-color: blueviolet;
+            color: #fff;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+<div class="wrapper">
+    <h1>Ustu Quvvet</h1>
+    <div>
+        
+    </div>
+    <label for="quvvet_gore_eded">Quvvete Gore Ededi Tapin: </label>
+    <input type="number" name="" id="quvvet_gore_eded" class="input" placeholder="Quvveti girin..">
+    <button type="button" class="convert">
+        Cevir
+        
+    </button>
+    <h2 class="result">
+        
+    </h2>
+    <h2 class="details">
+
+    </h2>
+</div>
+
+
+
+
+<div class="wrapper-2">
+    <h1>Quvvet Ustu</h1>
+    <label for="quvvet_gore_eded">Edede Gore Quvveti Tapin: </label>
+    <div class="contain">
+        <input type="number" name="" id="edede_gore_quvvet" class="input-2" placeholder="Ededi Girin..">
+        <button class="btn x2 active">x2</button>
+        <button class="btn x3">x3</button>
+    </div>
+
+    <button type="button" class="convert-2">
+        Cevir
+        
+    </button>
+    <h2 class="result-2">
+
+    </h2>
+
+</div>
+
+
+<script>
+let input = document.querySelector("#quvvet_gore_eded");
+let convertBtn = document.querySelector(".convert");
+
+
+convertBtn.addEventListener("click",myFun);
+let lowYuvarlatma = 0;
+let highYuvartlatma = 0;
+let hesablama_1 = 0;
+let hesablama_2 = 0;
+
+// input.value = "";
+function myFun() {
+    let result = 0;
+    result = Math.sqrt(input.value);
+    let control = Number.isInteger(result);
+
+    if (input.value !== "1") {
+        console.log(control);
+
+        if(control) {
+            document.querySelector(".result").innerHTML = `<span style='color: green; font-size: 1.4em;'>${result}</span>`;
+            document.querySelector(".details").innerHTML = "";
+        }else {
+              result = Math.sqrt(input.value).toFixed(5);
+              lowYuvarlatma = Math.floor(result);
+              highYuvartlatma = Math.ceil(result);
+              hesablama_1 = lowYuvarlatma * lowYuvarlatma;
+              hesablama_2 = highYuvartlatma * highYuvartlatma;
+
+              if(hesablama_1 == hesablama_2) {
+                  highYuvartlatma = highYuvartlatma;
+              }
+    
+             if(input.value - 1 == hesablama_2) {
+                  lowYuvarlatma =  lowYuvarlatma;
+                  highYuvartlatma = highYuvartlatma + 1;
+                  hesablama_1 = lowYuvarlatma * lowYuvarlatma;
+                  hesablama_2 = highYuvartlatma * highYuvartlatma;
+                  result = Math.sqrt(input.value).toFixed(5);
+                  console.log("lowYuvarlatma");
+             }
+             if(input.value == hesablama_2 - 1) {
+                 lowYuvarlatma =  lowYuvarlatma;
+                 highYuvartlatma = highYuvartlatma;
+                 hesablama_1 = lowYuvarlatma * lowYuvarlatma ;
+                 hesablama_2 = highYuvartlatma * highYuvartlatma;
+                 result = Math.sqrt(input.value).toFixed(5);
+                 console.log("highYuvartlatma");
+             }
+            document.querySelector(".result").innerHTML = "CAVAB TAM DEYIL! <br>" + "<span style='color: red; display: block; text-align: center;'>"+result+"</span>" + "<br>";
+            document.querySelector(".details").innerHTML = "Ededin asagi TAM yuvarlasdirilmasi :" + hesablama_1 + "(" + lowYuvarlatma+ "<sup>2</sup>)" + "<br> Ededin yuksek TAM yuvarlasdirilmasi :" + hesablama_2 + "(" + highYuvartlatma+ "<sup>2</sup>)";
+        }
+    }else {
+        document.querySelector(".result").innerHTML = `<b>ERROR</b>`;
+         document.querySelector(".details").innerHTML = "";
+    }
+
+
+    
+    console.log(typeof result);
+    console.log(lowYuvarlatma)
+    console.log(highYuvartlatma)
+    console.log(hesablama_1)
+    console.log(hesablama_2)
+    console.log(input.value - 1 == hesablama_2)
+    console.log(control);
+}
+
+
+let convert = document.querySelector(".convert-2");
+let input_2 = document.querySelector("#edede_gore_quvvet");
+let result_2 = document.querySelector(".result-2");
+let hesablama_3 = 0;
+let netice = 0;
+let btn_1 = document.querySelector(".x2");
+let btn_2 = document.querySelector(".x3");
+
+btn_1.addEventListener("click",function(){
+    btn_1.classList.add("active");
+    btn_2.classList.remove("active");
+
+});
+
+btn_2.addEventListener("click",function(){
+    btn_2.classList.add("active");
+    btn_1.classList.remove("active");
+
+});
+
+convert.addEventListener("click",function(){
+
+    if(input_2.value == " " || input_2.value == "") {
+        result_2.innerHTML = "Ədəsi Daxil Edin.."
+    }else {
+    if(btn_1.classList.contains("active")) {
+       hesablama_3 = Math.pow(input_2.value,2);
+       result_2.innerHTML = `Cavab: ${hesablama_3}`;
+    }
+
+   if(btn_2.classList.contains("active")) {
+      hesablama_3 = Math.pow(input_2.value,3);
+      result_2.innerHTML = `Cavab: ${hesablama_3}`;
+    }
+    console.log(input_2.value)
+}
+
+
+});
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

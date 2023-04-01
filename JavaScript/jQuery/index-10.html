@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Lesson 10</title>
+    <style>
+
+
+
+        * {
+            list-style-type: none;
+     
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+        form {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 100px;
+        }
+        label, input {
+            margin: 5px 0;
+            width: 350px;
+        }
+        h1 {
+            background-color: rgb(255, 97, 97);
+            color: #fff;
+        }
+        #button {
+        padding: 10px 15px;
+        background-color: green;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 30px;
+        width: 200px;
+        transition: 400ms all ease;
+        border-radius: 30px;
+        border: none;
+        }
+        #button:hover {
+            transform: scale(1.2);
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+<div class="form-group">
+
+    <h1 id="error">
+    </h1>
+<form action="">
+    <label for="email">Email</label>
+    <input type="email" name="" id="email" placeholder="Email" required>
+
+    <label for="number">Phone Number</label>
+    <input type="text" name="" id="number" placeholder="Number"> 
+
+    <label for="password">Password</label>
+    <input type="password" name="" id="password" placeholder="Password">
+
+    <label for="repassword">Again Password</label>
+    <input type="password" name="" id="repassword" placeholder="Again Password">
+    <button id="button" type="button">Send</button>
+</form>
+</div>
+
+
+   
+    
+    <script>
+
+        $(document).ready(function() {  
+
+
+            $("#button").click(function() {
+                var errorMessage = "";
+                $("#error").html("");
+
+                if($("#email").val() == "") {
+                    errorMessage += "<p>email yazda</p>";
+                }
+                if($("#number").val() == "") {
+                    errorMessage += "<p>Nomreni yazda ala</p>";
+                }
+
+                if($("#number").val() != "") {
+                    if($.isNumeric($("#number").val()) == false) {
+                    errorMessage += "<p>XIYAR NOMRE BELE YAZILIR</p>";
+                }
+                }
+
+                if($("#password").val() == "") {
+                    errorMessage += "<p>parolunu yaz qurtarda</p>";
+                }
+                if($("#repassword").val() != $("#password").val()) {
+                    errorMessage += "parol sehvdi xiyar";
+                }
+
+                if(errorMessage != "") {
+                    $("#error").html(errorMessage)
+                }
+                if(errorMessage == "") {
+                   $("#error").html("Succes").css("background-color","green");
+                }
+                else {
+                    $("#error").css("background-color","red")
+                }
+                
+            });
+
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

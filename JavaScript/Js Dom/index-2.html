@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Dom</title>
+</head>
+<body>
+
+    <ul id="nav">
+        <li class="task">Task 1</li>
+        <li class="task">Task 2</li>
+        <li class="task">Task 3</li>
+    </ul>
+    
+    <script>
+        let result;
+        nav = document.getElementById("nav");
+        result = nav.children;
+        result = nav.firstElementChild; // ul nin icine girir ve ilk tagi yazdirir
+        result = nav.lastElementChild; // ul nin icine girir ve son tagi yazdirir
+        // -----------------------------------------------------------------------------
+
+        result = document.querySelector(".task").nextElementSibling.nextElementSibling;
+        console.log(result)
+    </script>
+</body>
+</html>

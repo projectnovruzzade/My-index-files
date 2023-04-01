@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Lesson 6</title>
+    <style>
+          body {
+              display: flex;
+              justify-content: flex-start;
+              flex-direction: column;
+              align-items: center;
+          }
+    </style>
+</head>
+
+<body>
+
+    <h2 class="txt mt-4">Hello World</h2>
+    <button class="btn btn-primary mt-4" id="hide">Hide!</button> <br>
+    <button class="btn btn-success" id="show">Show!</button> <br>
+    <button class="btn btn-success" id="toggle">Show/Hide!</button>
+  
+    <script>
+
+        $(document).ready(function () {  
+
+            $("#hide").click(function(){
+                $(".txt").hide(500);    // 1){hide} methodu elemente (display: none) kodunu atir ve element yox olur 
+            });                         // 2) biz bu methodun icerine (transition) yeni animasiyasini vaxtini yaza bilerik
+
+
+            $("#show").click(function(){
+                $(".txt").show(500);    // {show}  {hide} methodundan ferqli olaraq (display: none) kodunu silir ve elementi gosterir 
+            });                         // 2) biz bu methodun icerine (transition) yeni animasiyasini vaxtini yaza bilerik
+
+            $("#toggle").click(function(){
+                $(".txt").toggle(700,function(){ // 1) {toggle} ise eger element {show}da olarsa {hide} edir ve yaxud eksine
+                     $(this).css("color","red")  // 2) funksiya ise {toggle} prosesi bittikden sonra ise salinir
+                });
+            });
+
+        });
+
+
+    </script>
+</body>
+
+</html>

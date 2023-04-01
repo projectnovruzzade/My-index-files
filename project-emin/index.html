@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .wrapper {
+            width: auto;
+            padding: 3px;
+            width: 240px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            border-radius: 20px;
+            flex-direction: column;
+            justify-content: flex-end;
+            border: 1px solid black;
+        }
+        .btn-group {
+            display: flex;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-group button {
+            width: 40px;
+            border: none;
+            cursor: pointer;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 9px;
+            transition: 1200ms transform, 300ms opacity;
+            border-radius: 35px;
+        }
+
+        button img {
+            transition: 1000ms all;
+        }
+
+        .btn-group button.active {
+            transform: scale(1.5);
+            /* display: block; */
+        }
+
+        .btn1 {
+            background-color: #2ecc71;
+        }
+
+        .btn2 {
+            background-color: #e67e22;
+        }
+
+        .btn3 {
+            background-color: #e74c3c;
+        }
+
+        h3 {
+            font-size: 1.1em;
+            font-weight: 500;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <h3>Öz rəyinizi qeyd edin</h3>
+        <div class="btn-group">
+            <button class="btn1">
+                <img src="happy-outline.svg" alt="" width="34" height="34" id="img1">
+            </button>
+            <button class="btn2">
+                <img src="medium-01.svg" alt="" width="34" height="34" id="img2">
+            </button>
+            <button class="btn3">
+                <img src="sad-outline.svg" alt="" width="34" height="34" id="img3">
+            </button>
+        </div>
+    </div>
+
+
+    <script>
+    let btn1 = document.querySelector(".btn1");
+    let btn2 = document.querySelector(".btn2");
+    let btn3 = document.querySelector(".btn3");
+
+
+    btn1.addEventListener("click",function(){
+        btn2.style = "opacity: 0; pointer-events: none;";
+        btn3.style = "opacity: 0; pointer-events: none;";
+
+        btn1.style = "transform: translateX(50px) scale(1.5);";
+        document.getElementById("img1").style.transform = "rotateZ(360deg)";
+
+    });
+    btn2.addEventListener("click",function(){
+        btn1.style = "opacity: 0; pointer-events: none;";
+        btn3.style = "opacity: 0; pointer-events: none;";
+
+        btn2.style = "transform: translateX(0) scale(1.5);";
+        document.getElementById("img2").style.transform = "rotateZ(360deg)";
+
+    });
+
+    btn3.addEventListener("click",function(){
+        btn1.style = "opacity: 0; pointer-events: none;";
+        btn2.style = "opacity: 0; pointer-events: none;";
+
+        btn3.style = "transform: translateX(-50px) scale(1.5);";
+        document.getElementById("img3").style.transform = "rotateZ(360deg)";
+
+    });
+
+
+
+    </script>
+    
+</body>
+</html>

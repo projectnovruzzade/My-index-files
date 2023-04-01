@@ -1,0 +1,303 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+}
+::-webkit-scrollbar {
+    width: 3px !important;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #252934 !important; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888 !important; 
+    border-radius: 5px !important;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555 !important; 
+  }
+@font-face {
+    font-family: Font-1;
+    src: url(Font/Tactico-Bold.otf);
+}
+@font-face {
+    font-family: Font-2;
+    src: url(Font/Tactico-Grunge.otf);
+}
+@font-face {
+    font-family: Font-3;
+    src: url(Font/Tactico.otf);
+}@font-face {
+    font-family: Font-4;
+    src: url(Font/Roboto-Bold.ttf);
+}@font-face {
+    font-family: Font-5;
+    src: url(Font/Roboto-Medium.ttf);
+}@font-face {
+    font-family: Font-6;
+    src: url(Font/Finlandica-VariableFont_wght.ttf);
+}@font-face {
+    font-family: Font-7;
+    src: url(Font/Sectar.otf);
+}@font-face {
+    font-family: Font-8;
+    src: url(Font/Neon.ttf);
+}
+
+#section-1, #section-2 {
+    height: 100vh;
+    box-sizing: border-box;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    /* position: fixed; */
+    /* left: 0;
+    right: 0;
+    top: 0; */
+    background-repeat: no-repeat;
+    background-image: url("bg.jpg");
+    background-color: #222;
+}
+
+#section-2 {
+    background-image: none !important;
+    background-color: #222;
+    min-height: 100vh;
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.myClan {
+   color: #fff;
+   opacity: .9;
+   text-decoration: none;
+   font-size: 1em;
+   font-family: Font-4;
+   padding: 7px;
+   text-transform: uppercase;
+   animation: animate 1200ms infinite;
+   border: 1px solid #222;
+   border-left: 1px solid green;
+   display: block;
+}
+
+.myClan:hover {
+    animation-name: sa;
+    opacity: 1;
+    color: #fff;
+}
+
+@keyframes animate {
+
+   25% {
+       border-top: 1px solid green;
+   }
+   50% {
+       border-right: 1px solid green;
+   }
+   75% {
+       border-bottom: 1px solid green;
+   }
+   100% {
+      border-left: 1px solid #222;
+   }
+
+}
+
+#section-1 .container {
+    margin-top: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#section-2 .container{
+    margin-top: 15%;
+    position: relative;
+    top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+
+
+}
+.wrap {
+    background-color: rgba(34, 34, 34, 0.705);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 10px 0;
+}
+
+.cards {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nickContent h1 {
+    color: #fff;
+    font-family: Font-1;
+    font-size: 1.8em;
+}
+.idContent h2 {
+    color: #fff;
+    font-family: Font-1;
+    font-size: 1.5em;
+    color: #ffc107;
+}
+
+.control {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 75%;
+
+}
+
+.control-2 {
+    display: flex;
+    justify-content: center;
+}
+
+.txt-head {
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: Font-6;
+}
+
+.accordion-item {
+    background-color: #333E47 !important;
+    border: none !important;
+}
+.accordion-body{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.accordion-header {
+    background-color: #28323B !important;
+}
+
+.accordion-button span {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1em;
+    font-family: Font-8;
+}
+.accordion-button .leader {
+    font-size: 10px;
+    background-color: #f899a1;
+    padding: 3px 5px;
+    border-radius: 15px;
+    font-family: Font-4;
+    color: #000;
+}
+
+.accordion-button .admin {
+    font-size: 10px;
+    background-color: #86ffc9;
+    padding: 3px 5px;
+    border-radius: 15px;
+    color: #000;
+    font-family: Font-4;
+}
+
+.accordion-button .user {
+    font-size: 10px;
+    padding: 3px 5px;
+    border-radius: 15px;
+    color: #000;
+    background-color: #E2E3E5;
+    font-family: Font-4;
+}
+
+.join span {
+    font-weight: 600;
+    font-family: Font-6;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.kd {
+    text-align: center;
+    font-size: 1.2em;
+    color: #ffc107;
+    margin-bottom: 1px;
+    text-transform: uppercase;
+    font-family: Font-6;
+}
+
+.symbol {
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin: 4px 0;
+    background-image: url("sniper.png");
+}
+
+.accordion-body p {
+    text-align: center;
+    font-size: 13px;
+    color: #fff;
+    opacity: .8;
+}
+
+.social-media a {
+    background-image: url("instagram.png");
+    display: block;
+    width: 30px;
+    margin: 0 auto;
+    padding: 3px;
+    height: 30px;
+    text-align: center;
+}
+
+.social-media span {
+    text-transform: uppercase;
+    color: #f899a1;
+    user-select: none;
+}
+
+.accordion-button::after  {
+    background-image: url("down-15.png") !important;
+}
+
+
+@media screen and (max-width: 496px) {
+    .myClan {
+        font-size: 0.9em;
+    }
+
+    #section-2 {
+       height: auto !important;
+    }
+}

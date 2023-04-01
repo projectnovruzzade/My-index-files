@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&family=Open+Sans:wght@500;600&family=Poppins:wght@500;600&family=Roboto:wght@500&display=swap');
+
+body {
+    width: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.section {
+    width: 100%;
+    height: 100vh;
+}
+
+.section .container {
+    width: 90%;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    top: 70px;
+    margin: 0 auto;
+    background-color: #E4EBF6;
+}
+
+.section .container .heading-txt {
+    font-size: 1.3em;
+    color: #000;
+    margin-left: 10px;
+}
+
+.wrapper {
+
+
+}
+
+.container .main  {
+    width: 90%;
+    margin-top: 150px;
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 12px;
+    margin: 30px auto 0 auto;
+}
+
+.main .wrapper .heading-txt {
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 45px;
+    justify-content: space-between;
+    display: flex;
+    font-size: 1em;
+    border-bottom: 2px solid #222;
+    opacity: .8;
+    height: 40px;
+    align-items: center;
+
+    color: #222;
+}
+
+.main .wrapper .list-groups {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.main .wrapper .list-groups .list-item {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    margin-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid #222;
+    padding-left: 10px;
+    justify-content: space-between;
+}
+.main .wrapper .list-groups .list-item img {
+    border-radius: 30px;
+}
+.main .wrapper .list-groups .list-item .profile-name {
+    display: flex;
+    align-items: center;
+}
+.main .wrapper .list-groups .list-item .profile-name span {
+    margin-left: 10px !important;
+}
+
+
+.main .wrapper .list-groups .list-item:last-child {
+    border: none;
+}
+
+.list-item .icon {
+  display: flex;
+}
+.list-item .icon button {
+    display: block;
+    width: 35px;
+    height: 35px;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    margin-right: 5px;
+}
+.list-item .icon button:nth-child(1) {
+    background-color: red;
+}
+.list-item .icon button:nth-child(2) {
+    background-color: green;
+}
+
+
+.auto-txt {
+    font-size: .6em;
+    opacity: .6;
+}

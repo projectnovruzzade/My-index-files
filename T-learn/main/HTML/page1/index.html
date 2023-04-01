@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> <!-- Icon -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>HTML Dərs 1</title>
+</head>
+
+<body>
+
+    <section id="section">
+        <header>
+            <div class="logo">
+                <img src="logo.png" alt="" width="70" height="45">
+            </div>
+            <nav class="nav">
+                <a href="" class="active">HTML</a>
+                <a href="">CSS</a>
+                <a href="">JavaScript</a>
+                <a href="" class="btn btn-outline-info">Quiz</a>
+            </nav>
+        </header>
+        <div class="content">
+            <div class="slide">
+                <div class="wrapper">
+                    <div class="list-group">
+                        <div class="heading-txt">
+                            HTML
+                        </div>
+                        <li class="active"><a href="" class="">HTML nədir</a></li>
+                        <li><a href="" class="">HTML struktur kodarı</a></li>
+                        <li><a href="" class="">HTML Taglər</a></li>
+                        <li><a href="" class="">Mətn Tag</a></li>
+                        <li><a href="" class="">Mətn redaktə etmək</a></li>
+                        <li><a href="" class="">Link əlavə etmək</a></li>
+                        <li><a href="" class="">Mətn ölçüləri</a></li>
+                        <li><a href="" class="">Şəkil Tag</a></li>
+                        <li><a href="" class="">Qutu yaratmaq</a></li>
+                        <li><a href="" class="">Class seçici</a></li>
+                        <li><a href="" class="">İD seçici</a></li>
+                        <li><a href="" class="">Form yaratmaq</a></li>
+                        <li><a href="" class="">Form yaratmaq #2</a></li>
+                        <li><a href="" class="">Tablo yaratmaq</a></li>
+                        <li><a href="" class="">HTML5 Taglər</a></li>
+                        <li><a href="" class="">CSS</a></li>
+                        <li><a href="" class="">JavaScript</a></li>
+                        <li><a href="" class="">Video Taglər</a></li>
+                        <li><a href="" class="">Musiqi Taglər</a></li>
+                        <li><a href="" class="">Responsive</a></li>
+                    </div>
+    
+                </div>
+            </div>
+            
+            <main>
+                <div class="wrapper">
+                    <div class="heading-txt">
+                        
+                    </div>
+                </div>
+            </main>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+
+            $("#menuIcon").click(function () {
+                $(".list-group").slideToggle();
+                $("#icon").toggleClass("active-2");
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>

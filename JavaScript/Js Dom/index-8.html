@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Js Dom</title>
+    <style>
+        .dropdown-toggle::after {
+            display: none;
+        }
+        .me-3 {
+            margin-top: 1px;
+        }
+    </style>
+</head>
+
+<body style="padding: 100px; display: flex; align-items: center; flex-direction: column;">
+    <div class="form-group d-flex w-50">
+        <input type="text" id="inputText" class="form-control">
+        <button class="btn btn-success btn-lg me-2 ms-2" id="button" type="button">Add</button>
+        <button class="btn btn-danger btn-lg" id="removeButton" type="button">Remove</button>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 g-3 w-75">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <b> List </b>
+                    </div>
+                </div>
+                <div class="card mt-1 border-0">
+                    <ul class="list-group" id="task-list">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script>
+        let ul = document.querySelector("#task-list");
+        let edidId;
+        let isEditTask = false;
+
+        let list_items =
+            [
+                {
+                    "id": 1,
+                    "name": "Name"
+                }
+            ];
+
+        dispay();
+        // ****************************************************************  
+        function dispay() {
+            ul.innerHTML = "";
+            for (let index of list_items) {
+                let li =
+                    `
+             <li class="list-group-item border-top mt-1 d-flex justify-content-between align-items-center">
+                <div class="form-check d-flex align-items-center">
+                   <input type="checkbox" name="" id="${index.id}" class="form-check-input me-2">
+                    <label for="${index.id}" class="form-check-label">${index.name}</label>
+                </div>
+                <!-- Example single danger button -->
+                <div class="btn-group">                                     
+            <button type="button" class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" onclick="deleteItem(${index.id})">Delete</a></li>
+                <li><a class="dropdown-item" href="#" onclick='editItem(${index.id},"${index.name}")'>Edit</a></li>
+            </ul>
+            </div>
+              </li>   
+
+                    `
+                ul.insertAdjacentHTML("beforeend", li)
+            }
+        }
+        // ****************************************************************
+        var inputTxt = document.querySelector("#inputText");
+        document.querySelector("#button").addEventListener("click", openTask);
+        inputTxt.addEventListener("keypress", acilfsa);
+        function acilfsa() {
+            if (event.key == "Enter") {
+                document.getElementById("button").click();
+            }
+        }
+        function openTask(event) {
+            if (inputTxt.value == "" || inputTxt.value == " ") {
+                alert("List is not Empty")
+            }
+            else {
+                if(!isEditTask) {
+                    // Yeni bir element elava edecek enter'a basilan zaman
+                    list_items.push({ "id": list_items.length + 1, "name": inputTxt.value })
+                }
+                else {
+                    // edit isleyecek enter'a basilan zaman
+                    for(let task of list_items) {
+                        if(task.id == edidId) {
+                            task.name = inputTxt.value;
+                        }
+                        isEditTask = false;
+                    }
+
+                }
+                inputTxt.value = "";
+                dispay();
+            }
+            event.preventDefault();
+        }
+
+        function deleteItem(id) {
+            let removeItem;
+           for (let index in list_items) {
+               if(list_items[index].id == id) {
+                  removeItem = index;
+               }
+           }
+           list_items.splice(removeItem , 1);
+           console.log(removeItem)
+           dispay();
+
+        }
+
+        function editItem(txtId,txtName) {
+            edidId = txtId;
+            isEditTask = true;
+            inputTxt.value = txtName;
+            inputTxt.focus();
+            inputTxt.classList.add("active");
+            console.log("Id = ",edidId);
+            console.log(isEditTask)
+
+        }
+
+
+    </script>
+</body>
+
+</html>

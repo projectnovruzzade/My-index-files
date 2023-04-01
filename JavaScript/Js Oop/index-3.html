@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson: 3</title>
+</head>
+
+<body>
+
+
+<button type="button" class="btn-start">Start!</button>
+
+    <script>
+
+        function Quiz(question, variants, trueVariant) {
+            this.question = question;
+            this.variants = variants;
+            this.trueVariant = trueVariant;
+            this.control = function(answer) {
+             return answer === this.trueVariant
+           };
+        }
+      
+
+    let questions = [
+       new Quiz("1) HTML acilisi necedir ?", { a: "Hyper Text MarkUp Language", b: "Cascading Style Sheet", c: "How to make Levengi" },"a"),
+       new Quiz("2) CSS acilisi necedir ?", { a: "Hyper Text MarkUp Language", b: "Cascading Style Sheet", c: "How to make Levengi" },"b"),
+       new Quiz("3) RAM acilisi necedir ?", { a: "Hyper Text MarkUp Language", b: "Cascading Style Sheet", c: "Random Access Memory" },"c")
+       ]
+        function Sual(questions){
+            this.questions = questions;
+            this.quizIndex = 0;
+            this.control = function() {
+                return this.questions[this.quizIndex];   // burada (questions) listinin {quizIndex} deyiskeninin deyerinden basla yeni "0"dan
+            }
+        }
+        const quiz = new Sual(questions);
+
+
+        document.querySelector(".btn-start").addEventListener("click",function() {
+           if (quiz.questions.length != quiz.quizIndex) {
+                console.log(quiz.control());
+                quiz.quizIndex += 1;
+                console.log(quiz.questions.length);
+                console.log(quiz.quizIndex);
+           }else {
+               console.log("bitdi a xiyar")
+           }
+        });
+
+    
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html> 
